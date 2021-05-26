@@ -20,7 +20,8 @@ Route::get('/payment', [MainController::class, 'payment']);
 Route::get('/map', [MainController::class, 'map']);
 Route::get('/review', [MainController::class, 'review']);
 Route::post('/review/check', [MainController::class, 'review_check']);
-
+//
+    Route::resource('news','NewsController');
 
 
 
@@ -30,3 +31,7 @@ Route::post('/review/check', [MainController::class, 'review_check']);
 //  return 'Id: '.$id.' Name: '.$name;
 //});
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
