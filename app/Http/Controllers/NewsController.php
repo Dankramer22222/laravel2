@@ -15,8 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-     $paginator = News::all()
-        ;
+     $paginator = News::all();
      return view('index',compact('paginator'));
 
     }
@@ -50,11 +49,11 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $item = NewsController::findOrFail($id);
+        $item = News::findOrFail($id);
 
 
-        return view('blog.admin.posts.show',
-            compact('item', 'categoryList'));
+        return view('show',
+        compact('item'));
 
     }
 

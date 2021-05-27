@@ -5,42 +5,25 @@
         /** @var \App\Models\News $item */
     @endphp
     <div class="container">
-        @include('news.admin.posts.includes.result_messages')
+        @include('includes.result_messages')
 
-        @if($item->exists)
-            <form method="POST" action="{{ route('news.admin.posts.update', $item->id) }}">
-                @method('PATCH')
-                @else
-                    <form method="POST" action="{{ route('news.admin.posts.store') }}">
-                        @endif
 
-                        @csrf
+
+
                         <div class="row justify-content-center">
                             <div class="col-md-8">
-                                @include('news.admin.posts.includes.post_edit_main_col')
+                                @include('includes.post_show_main_col')
                             </div>
                             <div class="col-md-3">
-                                @include('news.admin.posts.includes.post_edit_add_col')
+                                @include('includes.post_edit_add_col')
                             </div>
                         </div>
-                    </form>
 
-                    @if($item->exists)
-                        <br>
-                        <form method="POST" action="{{ route('news.admin.posts.destroy', $item->id) }}">
-                            @method('DELETE')
-                            @csrf
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <div class="card card-block">
-                                        <div class="card-body ml-auto">
-                                            <button type="submit" class="btn btn-link">Удалить</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3"></div>
-                            </div>
-                        </form>
-        @endif
+
+
     </div>
 @endsection
+
+
+
+

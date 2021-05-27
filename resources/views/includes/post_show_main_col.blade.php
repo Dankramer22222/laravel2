@@ -5,11 +5,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                @if($item->is_published)
-                    Опубликовано
-                @else
-                    Черновик
-                @endif
+
             </div>
             <div class="card-body">
                 <div class="card-body">
@@ -28,53 +24,36 @@
                         <div class="tab-pane active" id="maindata" role="tabpanel">
                             <div class="form-group">
                                 <label for="title">Заголовок</label>
-                                <input name="title" value="{{ $item->title }}"
-                                       id="title"
-                                       type="text"
-                                       class="form-control"
-                                       minlength="3"
-                                       required>
+                                <h3 id ="title"> {{ $item->title }}</h3>
+
                             </div>
                             <div class="form-group">
                                 <label for="content_raw">Статья</label>
-                                <textarea name="content_raw"
-                                          id="content_raw"
-                                          class="form-control"
-                                          rows="20">{{ old('content_raw', $item->content_raw) }}
-                                </textarea>
+                                <div >
+
+                                         {{ old('content_raw', $item->content_raw) }}
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="add_data" role="tabpanel">
                             <div class="form-group">
-                                <label for="category_id">Категория</label>
+
                                 <select name="category_id"
                                         id="category_id"
                                         class="form-control"
-                                        placeholder="Выберете категорию"
+
                                         required>
-                                    @foreach($categoryList as $categoryOption)
-                                        <option value="{{ $categoryOption->id }}"
-                                                @if($categoryOption->id == $item->category_id) selected @endif
-                                        >
-                                            {{ $categoryOption->title }}
-                                        </option>
-                                    @endforeach
+
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="slug">Идентификатор</label>
-                                <input name="slug" value="{{ $item->slug }}"
-                                       id="slug"
-                                       type="text"
-                                       class="form-control">
+                                <h3> {{ $item->slug }}</h3>
+
+
                             </div>
                             <div class="form-group">
-                                <label for="preview">Анонс</label>
-                                <textarea name="preview"
-                                          id="preview"
-                                          class="form-control"
-                                          rows="3">{{ old('excerpt', $item->excerpt) }}
-                                </textarea>
+                                <div>{{ old('excerpt', $item->excerpt) }}</div>
                             </div>
                             <div class="form-check">
                                 <input name="is_published"
